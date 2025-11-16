@@ -1,4 +1,6 @@
-# Exercises
+
+/*
+
 ### Objective
 
 Imagine you work in Thoughtful’s robotic automation factory, and your objective is to write a function for one of its robotic arms that will dispatch the packages to the correct stack according to their volume and mass.
@@ -32,3 +34,26 @@ Implement the function **`sort(width, height, length, mass)`** (units are centim
     - Code quality.
     - Handling edge cases and inputs.
     - Test coverage.
+
+*/
+#include <string>
+#include<iostream>
+using namespace std;    
+
+string sort(int width, int height, int length, int mass) {
+    bool isBulky = (width >= 150 || height >= 150 || length >= 150 || (width * height * length) >= 1000000);
+    bool isHeavy = (mass >= 20);
+
+    if (isBulky && isHeavy) {
+        return "REJECTED";
+    } else if (isBulky || isHeavy) {
+        return "SPECIAL";
+    } else {
+        return "STANDARD";
+    }
+}
+
+int main() {
+    // Your program logic here
+    cout << sort(100, 100, 100, 10); // Example call
+}
